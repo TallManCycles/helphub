@@ -13,7 +13,7 @@ function toggleChat(open: boolean) {
 
 <template>
   <div class="text-align-center">
-    Hello World
+    This is a demo of a chat window component.
   </div>
   <ChatButton :v-model="chatOpen" @toggle-chat="toggleChat" />
   <ChatWindow :isChatOpen="chatOpen" />

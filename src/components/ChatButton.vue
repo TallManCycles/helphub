@@ -1,10 +1,9 @@
 <template>
   <v-btn
-    icon
+    icon="mdi-chat"
     class="chat-button"
     @click="toggleChat"
   >
-    <v-icon icon="mdi-checkbox"></v-icon>
   </v-btn>
 </template>
 
