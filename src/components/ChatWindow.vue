@@ -62,22 +62,22 @@ function sendMessage() {
 <style scoped>
 .chat-window {
   position: fixed;
-  bottom: 80px; /* Adjust this value to position the chat window above the button */
+  bottom: 80px; 
   right: 16px;
-  width: 300px; /* Adjust the width as needed */
-  max-height: 400px; /* Adjust the height as needed */
+  width: 300px;
+  max-height: 400px; 
   overflow-y: auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Ensure it appears above other elements */
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
 }
 
 .chat-content {
   max-height: 300px;
   overflow-y: auto;
   padding: 10px;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
   -ms-overflow-style: none; 
 }
 
