@@ -17,7 +17,7 @@
           hide-details
         ></v-text-field>
         <div>
-            <v-btn color="primary" text @click="sendMessage">Send</v-btn>
+            <v-btn color="primary" @click="sendMessage">Send</v-btn>
         </div>
       </v-card-actions>
     </v-card>
@@ -41,11 +41,6 @@ const newMessage = ref('');
 watch(() => props.isChatOpen, (newVal) => {
   chatOpen.value = newVal;
 });
-
-function closeChat() {
-  chatOpen.value = false;
-  emit('update:isChatOpen', false);
-}
 
 function sendMessage() {
   if (newMessage.value.trim() !== '') {
