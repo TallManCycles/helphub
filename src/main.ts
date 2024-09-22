@@ -1,8 +1,5 @@
-import { createApp, defineCustomElement } from 'vue'
-import './style.css'
+import { createApp, defineCustomElement, h } from 'vue'
 import App from './App.vue'
-
-// Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
@@ -15,8 +12,23 @@ const vuetify = createVuetify({
   directives,
 })
 
+// Create a new component that extends the original component
+const CustomElement = {
+  extends: App,
+  props: {
+    vuetify: Object,
+  },
+  setup(props: any) {
+    const app = createApp({
+      render: () => h(App),
+    })
+    app.use(props.vuetify)
+    return app.mount('#app')
+  },
+}
+
 // Define the custom element
-const element = defineCustomElement(App)
+const element = defineCustomElement(CustomElement)
 
 // Register the custom element
 customElements.define('helphub-widget', element)
