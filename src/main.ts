@@ -1,37 +1,29 @@
-import { createApp, defineCustomElement, h } from 'vue'
+import { defineCustomElement, h } from 'vue'
 import App from './App.vue'
+
+// Vuetify
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
+
+// Import Vuetify styles and icons
 import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/styles'
 
 // Create Vuetify instance
 const vuetify = createVuetify({
   components,
-  directives,
+  directives
 })
 
-// Create a new component that extends the original component
-const CustomElement = {
-  extends: App,
-  props: {
-    vuetify: Object,
-  },
-  setup(props: any) {
-    const app = createApp({
-      render: () => h(App),
-    })
-    app.use(props.vuetify)
-    return app.mount('#app')
-  },
-}
+// Create a wrapper component for Vuetify integration in a web component
+const AppWrapper = defineCustomElement({
+  render: () => h(App),
+  setup() {
+    return { vuetify }
+  }
+})
 
 // Define the custom element
-const element = defineCustomElement(CustomElement)
-
-// Register the custom element
-customElements.define('helphub-widget', element)
-
-// If you still want to mount the app normally
-createApp(App).use(vuetify).mount('#app')
+customElements.define('my-vue-widget', AppWrapper)
